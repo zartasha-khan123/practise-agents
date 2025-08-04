@@ -1,53 +1,53 @@
-from agents import Agent, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered , Runner 
-from dotenv import load_dotenv
-from outputGuardrail import quardrails_output
-from inputguardrail import check_slangs
-from my_tools import generate_customer_token, identity_customer_purpose
-from bankProject.agent.handoffs import account_agent , transfer_agent , loan_agent
-import rich
+# from agents import Agent, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered , Runner 
+# from dotenv import load_dotenv
+# from outputGuardrail import quardrails_output
+# from inputguardrail import check_slangs
+# from my_tools import generate_customer_token, identity_customer_purpose
+# from agent.handoffs import account_agent , transfer_agent , loan_agent
+# import rich
 
-#------------------------------------
+# #------------------------------------
 
-load_dotenv()
-# enable_verbose_stdout_logging()
-
-
-#-------------------------------------
+# load_dotenv()
+# # enable_verbose_stdout_logging()
 
 
-agent = Agent(
-    name="bank_Greeting_agent",
-    instructions=
-    """
-     you are a friendly bank greeting agent. 
-     1- welcome customer nicely.
-     2- always use generate_customer_token tool to generate a token number for the customer.
-     3- use check_banking_purpose to understand user needs.
-     4- if confidence > 0.8, sen user to the right specialist.
-     5- for example ......
-     args:
-    service_type = "general"
-    service_type = "account_service"
-    service_type = "transfer_service"
-    service_type = "loan_service"
-    6-if user is asking about other than , transfer , loan , account , then use the following response , please contact our customer service for more information.
-     Always me helpful
+# #-------------------------------------
+
+
+# agent = Agent(
+#     name="bank_Greeting_agent",
+#     instructions=
+#     """
+#      you are a friendly bank greeting agent. 
+#      1- welcome customer nicely.
+#      2- always use generate_customer_token tool to generate a token number for the customer.
+#      3- use check_banking_purpose to understand user needs.
+#      4- if confidence > 0.8, sen user to the right specialist.
+#      5- for example ......
+#      args:
+#     service_type = "general"
+#     service_type = "account_service"
+#     service_type = "transfer_service"
+#     service_type = "loan_service"
+#     6-if user is asking about other than , transfer , loan , account , then use the following response , please contact our customer service for more information.
+#      Always me helpful
     
-    """,
-    handoffs=[account_agent,transfer_agent,loan_agent],
-    tools=[generate_customer_token,identity_customer_purpose],
-    input_guardrails=[check_slangs],
-    output_guardrails=[quardrails_output]
-)
+#     """,
+#     handoffs=[account_agent,transfer_agent,loan_agent],
+#     tools=[generate_customer_token,identity_customer_purpose],
+#     input_guardrails=[check_slangs],
+#     output_guardrails=[quardrails_output]
+# )
 
 # main.py
 import asyncio
 from agents import Agent , Runner , InputGuardrailTripwireTriggered , OutputGuardrailTripwireTriggered
 from dotenv import load_dotenv
-from outputGuardrail import quardrails_output
-from inputguardrail import check_slangs
-from my_tools import generate_customer_token, identity_customer_purpose
-from bankProject.agent.handoffs import account_agent, transfer_agent, loan_agent
+from bankProject.agent.outputGuardrail import quardrails_output
+from bankProject.agent.inputguardrail import check_slangs
+from bankProject.agent.my_tools import generate_customer_token, identity_customer_purpose
+from agent.handoffs import account_agent, transfer_agent, loan_agent
 
 load_dotenv()
 
