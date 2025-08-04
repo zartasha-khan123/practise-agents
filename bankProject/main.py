@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from outputGuardrail import quardrails_output
 from inputguardrail import check_slangs
 from my_tools import generate_customer_token, identity_customer_purpose
-from handoffs import account_agent , transfer_agent , loan_agent
+from bankProject.agent.handoffs import account_agent , transfer_agent , loan_agent
 import rich
 
 #------------------------------------
@@ -47,7 +47,7 @@ from dotenv import load_dotenv
 from outputGuardrail import quardrails_output
 from inputguardrail import check_slangs
 from my_tools import generate_customer_token, identity_customer_purpose
-from handoffs import account_agent, transfer_agent, loan_agent
+from bankProject.agent.handoffs import account_agent, transfer_agent, loan_agent
 
 load_dotenv()
 
