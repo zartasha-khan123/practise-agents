@@ -1,10 +1,10 @@
-from agents import Agent, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered , Runner
+from agents import Agent, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered , Runner 
 from dotenv import load_dotenv
 from outputGuardrail import quardrails_output
 from inputguardrail import check_slangs
 from my_tools import generate_customer_token, identity_customer_purpose
 from handoffs import account_agent , transfer_agent , loan_agent
-import asyncio
+import rich
 
 #------------------------------------
 
@@ -40,6 +40,36 @@ agent = Agent(
     output_guardrails=[quardrails_output]
 )
 
+# main.py
+import asyncio
+from agents import Agent, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered, Runner
+from dotenv import load_dotenv
+from outputGuardrail import quardrails_output
+from inputguardrail import check_slangs
+from my_tools import generate_customer_token, identity_customer_purpose
+from handoffs import account_agent, transfer_agent, loan_agent
+
+load_dotenv()
+
+# Initialize agent
+agent = Agent(
+    name="bank_Greeting_agent",
+    instructions="""
+     You are a friendly bank greeting agent. 
+     1- Welcome the customer nicely.
+     2- Always use generate_customer_token tool to generate a token number for the customer.
+     3- Use check_banking_purpose to understand user needs.
+     4- If confidence > 0.8, send user to the right specialist.
+     5- For example...
+     service_type = "general" | "account_service" | "transfer_service" | "loan_service"
+     6- If the user asks something else, respond: "Please contact our customer service for more information."
+    """,
+    handoffs=[account_agent, transfer_agent, loan_agent],
+    tools=[generate_customer_token, identity_customer_purpose],
+    input_guardrails=[check_slangs],
+    output_guardrails=[quardrails_output]
+)
+
 def run_my_agent(user_input: str) -> str:
     try:
         loop = asyncio.new_event_loop()
@@ -55,7 +85,6 @@ def run_my_agent(user_input: str) -> str:
 
     except Exception as e:
         return f"⚠️ Unexpected error: {str(e)}"
-
 
 # while True:
 #  try:
