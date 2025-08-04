@@ -1,7 +1,7 @@
 
 from agents import Agent
 
-from bankProject.agent.outputGuardrail import  quardrails_output
+from agent.outputGuardrail import  quardrails_output
 
 
 account_agent = Agent(
