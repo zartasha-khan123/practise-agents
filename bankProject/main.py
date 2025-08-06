@@ -44,10 +44,10 @@
 import asyncio
 from agents import Agent , Runner , InputGuardrailTripwireTriggered , OutputGuardrailTripwireTriggered
 from dotenv import load_dotenv
-from agent.outputGuardrail import quardrails_output
-from agent.inputguardrail import check_slangs
-from agent.my_tools import generate_customer_token, identity_customer_purpose
-from agent.handoffs import account_agent, transfer_agent, loan_agent
+from my_agent.outputGuardrail import quardrails_output
+from my_agent.inputguardrail import check_slangs
+from my_agent.my_tools import generate_customer_token, identity_customer_purpose
+from my_agent.handoffs import account_agent, transfer_agent, loan_agent
 
 load_dotenv()
 
