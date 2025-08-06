@@ -38,7 +38,8 @@
 # app.py
 
 import streamlit as st
-from main import run_my_agent  # Import function from your main.py
+
+from main import run_my_agent
 
 st.set_page_config(page_title="🏦 Bank Assistant", page_icon="🏦", layout="centered")
 st.title("🏦 Welcome to Bank Helpdesk Assistant")

@@ -44,9 +44,9 @@
 import asyncio
 from agents import Agent , Runner , InputGuardrailTripwireTriggered , OutputGuardrailTripwireTriggered
 from dotenv import load_dotenv
-from bankProject.agent.outputGuardrail import quardrails_output
-from bankProject.agent.inputguardrail import check_slangs
-from bankProject.agent.my_tools import generate_customer_token, identity_customer_purpose
+from agent.outputGuardrail import quardrails_output
+from agent.inputguardrail import check_slangs
+from agent.my_tools import generate_customer_token, identity_customer_purpose
 from agent.handoffs import account_agent, transfer_agent, loan_agent
 
 load_dotenv()
