@@ -39,10 +39,11 @@
 
 import streamlit as st
 
-try:
-    from main import run_my_agent
-except ImportError:
-    from bankProject.main import run_my_agent  # For deployment
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
+
+from main import run_my_agent
 
 
 st.set_page_config(page_title="🏦 Bank Assistant", page_icon="🏦", layout="centered")
