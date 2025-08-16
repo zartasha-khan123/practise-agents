@@ -42,7 +42,7 @@
 
 # main.py
 import asyncio
-from agents import Agent , Runner , InputGuardrailTripwireTriggered , OutputGuardrailTripwireTriggered
+from my_agents import Agent , Runner , InputGuardrailTripwireTriggered , OutputGuardrailTripwireTriggered
 from dotenv import load_dotenv
 from my_agents.outputGuardrail import quardrails_output
 from my_agents.inputguardrail import check_slangs
